@@ -1,0 +1,34 @@
+@localhost_url = http://localhost:26000
+
+### Get all Tasks
+GET {{localhost_url}}/tasks
+
+### Get Single Task by ID
+@task_id = 67429b73333b715a01cf1496
+GET {{localhost_url}}/tasks/{{task_id}}
+
+### Create New Task
+POST {{localhost_url}}/tasks
+Content-Type: application/json
+
+{
+  "title": "Buy groceries",
+  "description": "Milk, Eggs, Bread",
+  "completed": false,
+  "createdAt": "2024-11-23T00:00:00Z"
+}
+
+### Put or Replace a Task
+@update_task_id = 6742a49721254b2e98d79821
+PUT {{localhost_url}}/tasks/{{update_task_id}}
+Content-Type: application/json
+
+{
+  "title": "Finish homework",
+  "description": "Complete math exercises and submit",
+  "completed": true
+}
+
+### DELETE User By ID
+@delete_task_id = 6742a35a456485b371a1e9a7
+DELETE {{localhost_url}}/tasks/{{delete_task_id}}
