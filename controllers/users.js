@@ -23,7 +23,7 @@ const getSingleUser = async (req, res) => {
     const { id } = req.params;
     const db = getDatabase();
     handleDatabaseAction(() =>
-        db.collection("tasks").findOne({ _id: new ObjectId(id) })
+        db.collection("users").findOne({ _id: new ObjectId(id) })
             .then(user => user ? res.status(200).json(user) : res.status(404).json({ error: "User not found" })),
         res
     );
@@ -86,9 +86,7 @@ const createUser = async (req, res) => {
         first_name,
         last_name,
         address: address || {},
-        roles: ['user'],
-        created_at: new Date(),
-        updated_at: new Date()
+        roles: ['user']
     };
 
     const db = getDatabase();

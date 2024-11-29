@@ -36,7 +36,6 @@ const createTask = async (req, res) => {
   // Validation using express-validator
   await check('title').notEmpty().withMessage('Title is required').run(req);
   await check('description').notEmpty().withMessage('Description is required').run(req);
-  await check('createdAt').optional().isISO8601().withMessage('CreatedAt must be a valid ISO 8601 date').run(req);
 
   // Check for validation errors
   const errors = validationResult(req);
@@ -44,11 +43,11 @@ const createTask = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { title, description, createdAt } = req.body;
+  const { title, description } = req.body;
   if (!title || !description) return res.status(400).json({ error: "Title and description are required" });
 
   const db = getDatabase();
-  const newTask = { title, description, completed: false, createdAt: createdAt ? new Date(createdAt) : new Date() };
+  const newTask = { title, description, completed: false, createdAt: new Date() };
 
   handleDatabaseAction(() =>
     db.collection("tasks").insertOne(newTask)
