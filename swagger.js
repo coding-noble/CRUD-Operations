@@ -2,8 +2,8 @@ const swaggerAutogen = require("swagger-autogen");
 
 const doc = {
     info: {
-        title: "Tasks API",
-        description: "Tasks API for CSE341 BYU class"
+        title: "Task Manager",
+        description: "Task Manager API for CSE341 BYU class"
     },
     host: "localhost:2600",
     schemes: ['http', 'https']
