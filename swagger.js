@@ -6,7 +6,7 @@ const doc = {
         description: "Tasks API for CSE341 BYU class"
     },
     host: "localhost:2600",
-    schemes: ['http', 'https']
+    schemes: ['https', 'http']
 };
 
 const outputFile = "./swagger.json";

@@ -4,7 +4,7 @@ const mongodb = require("./data/database.js");
 const routes = require("./routes");
 
 const app = express();
-const port = process.env.PORT || 26000;
+const port = process.env.PORT || 2600;
 
 app.use(bodyParser.json());
 
