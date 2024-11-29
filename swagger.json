@@ -8,8 +8,8 @@
   "host": "localhost:2600",
   "basePath": "/",
   "schemes": [
-    "https",
-    "http"
+    "http",
+    "https"
   ],
   "paths": {
     "/tasks/": {
